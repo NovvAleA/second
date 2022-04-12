@@ -1,0 +1,5 @@
+Hori antans.txt 1 0 1 0 1 0 1 0
+Hori antans.txt 0 1 0 1 0 1 0 1
+Hori antans.txt 1 1 1 1 1 1 1 1
+Hori antans.txt 1 0 1 0 1 0 1 0
+Hori antans.txt -1 0 -1 0 -1 0 -1 0
