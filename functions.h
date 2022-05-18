@@ -6,10 +6,10 @@
 #include <map>
 #include <fstream>
 
-
+int test(int dim);
 vector<CComplexVector*> fscan_data_and_output(const char* fname);
 
-vector<CComplexVector*> fscan_data_without_output(const char* fname);
+vector<CComplexVector*> fscan_data_without_output(string fname);
 //CComplexVector** fscan_data(const char* fname, int dim, int* arrdim);
 //CComplexVector** fscan_data(const char* fname, int dim);
 //int create_CCV(const char* fname, int dim);

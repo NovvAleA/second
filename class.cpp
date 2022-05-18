@@ -1,5 +1,5 @@
 #include "class.h"
-
+#include <chrono>
 
  CComplexVector& CComplexVector::operator=(const CComplexVector& other) {
 	vector<int>::iterator j;
@@ -44,14 +44,13 @@ CComplexVector& CComplexVector::operator+=(CComplexVector& second) {
 	if (this->get_dim() != second.get_dim()) {
 		cout << "Dim error in += !\n";
 	};
-	vector<int>::iterator j;
-	vector<int>::iterator k;
-
-	for (j = arr_re.begin(), k = second.re_begin(); j != arr_re.end(); j++, k++) {
-		*j += *k;
+#pragma omp parallel for
+	for (int i = 0; i < arr_re.size(); i++) {
+		arr_re.at(i) = arr_re[i] + second.get_real_ip(i);
 	}
-	for (j = arr_im.begin(), k = second.im_begin(); j != arr_im.end(); j++, k++) {
-		*j += *k;
+#pragma omp parallel for
+	for (int i = 0; i < arr_im.size(); i++) {
+		arr_im.at(i) = arr_im[i] + second.get_imag_ip(i);
 	}
 	return *this;
 }
@@ -60,14 +59,14 @@ CComplexVector& CComplexVector::operator-=(CComplexVector& second) {
 	if (this->get_dim() != second.get_dim()) {
 		cout << "Dim error in -= !\n";
 	};
-	vector<int>::iterator j;
-	vector<int>::iterator k;
-
-	for (j = arr_re.begin(), k = second.re_begin(); j != arr_re.end(); j++, k++) {
-		*j -= *k;
+	
+#pragma omp parallel for
+	for (int i = 0; i < arr_re.size(); i++) {
+		arr_re.at(i) = arr_re[i] - second.get_real_ip(i);
 	}
-	for (j = arr_im.begin(), k = second.im_begin(); j != arr_im.end(); j++, k++) {
-		*j -= *k;
+#pragma omp parallel for
+	for (int i = 0; i < arr_im.size(); i++) {
+		arr_im.at(i) = arr_im[i] - second.get_imag_ip(i);
 	}
 	//this->output();
 	return *this;

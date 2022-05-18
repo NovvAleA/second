@@ -22,7 +22,7 @@ int AT() {
 		cout << "Error_1! arrdim is " << arr.size() << " instead 5" << endl;
 		return 0;
 	}
-	for (int i = 0; i < arr.size(); i++) {
+	for (size_t i = 0; i < arr.size(); i++) {
 		if ((*arr[i]) != (*arr1[i])) {
 			cout << "Error_2! vector on" << i << "string " << endl;
 			return 0;

@@ -10,15 +10,20 @@ vector<CComplexVector*> fscan_data_and_output(const char* fname) {
 	return arr;
 }
 
-vector<CComplexVector*> fscan_data_without_output(const char* fname) {
-	ifstream inp;
+vector<CComplexVector*> fscan_data_without_output(string fname) {
+	//ifstream inp;
 	string tmp;
 	int  i = 0;
 
-	inp.open(fname);
+	ifstream inp(fname);
+	if (!inp) {
+		std::cout << "Error! Cannot open file!\n";
+	}
+	/*inp.open(fname);
 	if (!inp.is_open()) {
 		printf("Fileread error!");
-	}
+		exit;
+	}*/
 
 	vector<CComplexVector*> arr;
 	map<string, Factory*> factory;
@@ -32,6 +37,7 @@ vector<CComplexVector*> fscan_data_without_output(const char* fname) {
 
 	return arr;
 }
+
 
 
 

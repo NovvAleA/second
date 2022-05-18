@@ -34,9 +34,15 @@ public:
 	}
 
 	const int get_real_ip(int i) const {
+		if (i >= arr_re.size()) {
+			cout << "Error in get_real_ip";
+		}
 		return arr_re[i];
 	}
 	const int get_imag_ip(int i) const {
+		if (i >= arr_re.size()) {
+			cout << "Error in get_imag_ip";
+		}
 		return arr_im[i];
 	}
 
@@ -46,7 +52,7 @@ public:
 	vector<int>& get_arr_im() {
 		return arr_im;
 	}
-    const vector<int>::iterator re_begin() {
+    vector<int>::iterator re_begin() {
 		return arr_re.begin();
 	}
     vector<int>::iterator im_begin() {
@@ -75,7 +81,19 @@ public:
 	void set_fname(string fname) {
 		foutput = fname;
 	}
-
+	void set_re_i(size_t i, int value) {
+		if (i >= 0 && i <= arr_re.size())
+			arr_re[i] = value;
+		else
+			cout << "Eror in set_re_i";
+		
+	}
+	void set_im_i( size_t i,  int value) {
+		if (i >= 0 && i <= arr_im.size())
+			arr_im[i] = value;
+		else
+			cout << "Eror in set_im_i";
+	}
     virtual int output() = 0;
 	CComplexVector& operator+=( CComplexVector& second);
 	CComplexVector& operator-=(CComplexVector& second);

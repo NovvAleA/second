@@ -4,7 +4,7 @@
 #include "functions.h"
 #include "operators.h"
 #include "AT.h"
-
+//#include "time_test.h"
 
 int main()
 {
@@ -14,8 +14,10 @@ int main()
     if (AT() == 0) {
         cout << "Autotest failled!\n\n";
     }
+
     int mode = 0;
    
+    test(1000000);
     std::cout << "Read array of vectors and derive in file - 1\n\n";
     std::cout << "Arithmetic with vectors - 2\n\n\n";
     std::cin >> mode;
@@ -36,7 +38,7 @@ int main()
         CComplexVectorHori dif;
         ComplexNumber sp;
 
-        char name[20];
+        string name;
         std::cout << "\nEnter name of file with two vectors\n";
         std::cin >> name;
         arr = fscan_data_without_output(name);
